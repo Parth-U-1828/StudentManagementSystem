@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>SMS APP by PARTH
+</title>
+<style>
+	*{font-size:40px;font-family:Times New Roman;}
+	body{background-color:orange;}
+	.nav {background-color:black;}
+	.nav a {color:white;text-decoration:none;margin:10%;}
+</style>
+</head>
+
+<body>
+<center>
+	<div class="nav">
+	<a href = "{{ url_for("home") }}" > Home </a>
+	<a href = "{{ url_for("create") }}" > Create </a>
+	</div>
+<h1>Home Page</h1>
+<table border="5" style="width:70%;">
+<tr>
+<th>Rno</th>
+<th>Name</th>
+<th>Marks</th>
+<th>Delete</th>
+</tr>
+{% for m in msg %}
+	<tr style="text-align:center;">
+	<td> {{ m[0] }} </td>
+	<td> {{ m[1] }} </td>
+	<td> {{ m[2] }} </td>
+	<td> <a href = "{{ url_for('delete',id=m[0]) }}"
+			onclick="return cofirm('Are you Sure ???')"> Delete </a></td>
+	</tr>
+{% endfor %}
+</table>
+</center>
+</body>
+</html>
